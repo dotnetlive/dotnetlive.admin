@@ -253,3 +253,5 @@ paket-files/
 **/wwwroot/lib
 *.min.css
 *.min.js
+**/build
+**/wwwroot

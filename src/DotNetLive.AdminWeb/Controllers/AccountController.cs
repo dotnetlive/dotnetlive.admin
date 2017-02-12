@@ -10,6 +10,11 @@ namespace DotNetLive.AdminWeb.Controllers
     {
         public AccountController(IOptions<SecuritySettings> securitySetting) : base(securitySetting)
         {
+        }
+
+        [AllowAnonymous]
+        public void SpaLogin(string username, string passwordHash, string token)
+        {
 
         }
     }

@@ -21,7 +21,7 @@
     @RenderSection("styles", required: false)
 </head>
 <body>
-    @RenderSection("navbar", required: false)
+    @await Component.InvokeAsync("Navigation")
     @RenderBody()
     <hr />
     <footer id="footer"></footer>

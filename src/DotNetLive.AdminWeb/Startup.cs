@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using DotNetLive.Framework.DependencyManagement;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using DotNetLive.Framework.DependencyManagement;
-using Swashbuckle.AspNetCore.Swagger;
+using System;
 
 namespace DotNetLive.AdminWeb
 {
@@ -30,18 +26,11 @@ namespace DotNetLive.AdminWeb
         public IServiceProvider ConfigureServices(IServiceCollection services)
         {
             var env = services.BuildServiceProvider().GetService<IHostingEnvironment>();
-            services.AddSingleton<IServiceCollection>(factory => services);
-            //services.AddSingleton<IContainer>(factory => ApplicationContainer);
-            services.AddSingleton<IConfigurationRoot>(factory => Configuration);
+            services.AddSingleton(factory => services);
+            services.AddSingleton(factory => Configuration);
 
             //先通过asp.net core ioc注册
             services.AddDependencyRegister(Configuration);
-
-            // Register the Swagger generator, defining one or more Swagger documents
-            services.AddSwaggerGen(c =>
-            {
-                c.SwaggerDoc("v1", new Info { Title = "My API", Version = "v1" });
-            });
 
             return services.BuildServiceProvider();
         }
@@ -52,9 +41,9 @@ namespace DotNetLive.AdminWeb
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
 
+            app.UseDeveloperExceptionPage();
             if (env.IsDevelopment())
             {
-                app.UseDeveloperExceptionPage();
                 app.UseBrowserLink();
             }
             else
@@ -65,15 +54,6 @@ namespace DotNetLive.AdminWeb
             app.UseStaticFiles();
 
             app.UseIdentity();
-
-            // Enable middleware to serve generated Swagger as a JSON endpoint.
-            app.UseSwagger();
-
-            // Enable middleware to serve swagger-ui (HTML, JS, CSS etc.), specifying the Swagger JSON endpoint.
-            app.UseSwaggerUi(c =>
-            {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
-            });
 
             app.UseMvc(routes =>
             {
