@@ -61,7 +61,7 @@ export class Widget extends React.Component<{
             y < 0 && (y = 0);
             x > maxX && (x = maxX);
             y > maxY && (y = maxY);
-            this.setState({
+            self.setState({
                 top: y,
                 left: x
             });
@@ -85,7 +85,7 @@ export class Widget extends React.Component<{
         let layer = ReactDOM.findDOMNode(self.refs.layer);
         let maxX = document.body.clientWidth - layer.clientWidth;
         let maxY = document.body.clientHeight - layer.clientHeight;
-        let left = self.state.left, top = self.state.top;
+        let left = self.state.left || 50, top = self.state.top || 50;
         if (left < 0) left = 0;
         if (left > maxX) left = maxX;
         if (top < 0) top = 0;
@@ -101,7 +101,7 @@ export class Widget extends React.Component<{
     render() {
         let self = this, left = self.state.left, top = self.state.top, hidden = self.state.hidden;
         if (top == undefined) top = 50;
-        if (left == undefined) left = 50;
+        if (left == undefined) left = 50; 
         let indexStyle: any = {};
         if (!self.innerOperation && self.state.hidden && self.props.show === true) hidden = false;
         if (self.innerOperation) self.innerOperation = undefined;
