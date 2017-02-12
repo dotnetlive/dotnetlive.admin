@@ -1,10 +1,11 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
+let style = require("../../resource/style/model/index.less");
 class App extends React.Component<{}, {}>{
     render() {
         let self = this;
-        return <div>    
-            
+        return <div className={style.container}>
+
         </div>
     }
 }
