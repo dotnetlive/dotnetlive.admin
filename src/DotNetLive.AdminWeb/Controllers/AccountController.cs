@@ -1,6 +1,7 @@
 using DotNetLive.Framework.UserIdentity;
 using DotNetLive.Framework.WebFramework.Controllers;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 
 namespace DotNetLive.AdminWeb.Controllers
@@ -13,9 +14,9 @@ namespace DotNetLive.AdminWeb.Controllers
         }
 
         [AllowAnonymous]
-        public void SpaLogin(string username, string passwordHash, string token)
+        public IActionResult SpaLogin(string username, string passwordHash, string token)
         {
-
+            return Json(new { username, passwordHash, token });
         }
     }
 }
