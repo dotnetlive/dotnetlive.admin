@@ -5,7 +5,7 @@ import * as desktop from "../component/desktop";
 import { accountService } from "../service/account"
 import { Login } from "./login";
 import { Users } from "./user"
- require("../../resource/style/common.css");
+require("../../resource/style/common.css");
 let style = require("../../resource/style/model/index.less");
 class App extends React.Component<{ widgets: desktop.AppIcon[] }, {
     alerts?: { msg: string, className: string }[],
@@ -66,7 +66,7 @@ class App extends React.Component<{ widgets: desktop.AppIcon[] }, {
                 }}>
                     <Login logined={() => self.forceUpdate()} />
                 </div></div> : null}
-            <desktop.Desktop appIcons={self.props.widgets} showStartmenu={true} />
+            <desktop.Desktop appIcons={!accountService.isLogined() ? [] : self.props.widgets} showStartmenu={true} />
             {errorBox}
         </div>;
     }

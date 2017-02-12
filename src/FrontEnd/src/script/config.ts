@@ -1,5 +1,5 @@
 export let config = { 
-    debugMode:true,
+    debugMode:false,
     notLoginedAction: () => { },
     loading: (show: boolean) => { },
     error: (message: string, timeout: number = 1000) => { }

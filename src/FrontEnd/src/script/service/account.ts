@@ -30,7 +30,7 @@ class AccountService {
             if (name == "admin" && password == "123456") handle("test-token");
             else config.error("username or password error");
         } else {
-            ajax<LoginResponse>("/api/account/login", "GET", {}, (data) => handle(data.token));
+            ajax<LoginResponse>("/api/account/login", "GET", { "name": name, "password": password }, (data) => handle(data.token));
         }
     }
     isLogined(): boolean {

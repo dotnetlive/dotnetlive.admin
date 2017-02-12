@@ -1,7 +1,13 @@
 import { config } from "../config"
 export function ajax<T>(action: string, method: string, data: any, callback: (data: T, message?: string) => void) {
     var request = new XMLHttpRequest();
-    request.open(method, action, true);
+    var url = action;
+    if (method.toLowerCase() == "get" && !!data) {
+        let array = [];
+        for (let key in data) array.push(key + "=" + data[key])
+        if (array.length > 0) url += "?" + array.join("&");
+    }
+    request.open(method, url, true);
     request.setRequestHeader("Content-type", "application/json");
     request.onreadystatechange = () => {
         if (request.readyState == 4) {
