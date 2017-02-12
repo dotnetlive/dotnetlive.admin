@@ -1,0 +1,152 @@
+/*公共图标样式*/
+
+.widget-ico {
+    background: url(../../image/icon.png) no-repeat;
+    height: 16px;
+    width: 16px;
+}
+
+
+/*主框架结构*/
+
+.widget-layer {
+    position: relative;
+    z-index: 100;
+}
+
+.widget-box {
+    position: fixed;
+    min-width: 240px;
+    max-width: 960px;
+    background-color: #fff;
+    box-shadow: 1px 1px 50px rgba(0, 0, 0, 0.3);
+    left: 40%;
+    top: 150px;
+    overflow: hidden;
+}
+
+.widget-shade {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    left: 0;
+    top: 0;
+    opacity: 0.5;
+    filter: alpha(opacity=50);
+}
+
+.widget-full .widget-box {
+    width: 100% !important;
+    height: 100% !important;
+    left: 0 !important;
+    top: 0 !important;
+    max-width: 100% !important;
+}
+
+.widget-box.show {
+    animation: bouncedelay linear .03s;
+    -webkit-animation: bouncedelay linear .03s;
+}
+
+.widget-move {
+    cursor: move;
+}
+
+.widget-title {
+    width: 100%;
+    background-color: #eaeaea;
+    border-bottom: 1px solid #d5d5d5;
+    color: #333;
+    font-size: 14px;
+    height: 35px;
+    line-height: 35px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.widget-title span {
+    padding-left: 2px;
+}
+
+.widget-title img {
+    margin-left: 10px;
+    margin-top: -2px;
+    width: 28px;
+    height: 28px;
+}
+
+.widget-con {
+    line-height: 22px;
+    word-break: break-all;
+    overflow: hidden;
+}
+
+.widget-min {
+    background-position: -120px 0px;
+    position: absolute;
+    right: 30px;
+    top: 12px;
+    cursor: pointer;
+}
+
+.widget-min:hover {
+    background-position: -140px 0px;
+}
+
+.widget-close {
+    background-position: 0px 0px;
+    position: absolute;
+    right: 10px;
+    top: 12px;
+    cursor: pointer;
+}
+
+.widget-close:hover {
+    background-position: -20px 0px;
+}
+
+.widget-resize {
+    background-position: -40px 0px;
+    position: absolute;
+    right: 50px;
+    top: 12px;
+    cursor: pointer;
+}
+
+.widget-resize:hover {
+    background-position: -80px 0px;
+}
+
+.widget-full .widget-resize {
+    background-position: -60px 0px;
+}
+
+.widget-full .widget-resize:hover {
+    background-position: -100px 0px;
+}
+
+@-webkit-keyframes bouncedelay {
+    0% {
+        opacity: 0;
+        -webkit-transform: scale(0)
+    }
+    100% {
+        opacity: 1;
+        -webkit-transform: scale(1)
+    }
+}
+
+@keyframes bouncedelay {
+    0% {
+        opacity: 0;
+        transform: scale(0);
+        -webkit-transform: scale(0)
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+        -webkit-transform: scale(1)
+    }
+}

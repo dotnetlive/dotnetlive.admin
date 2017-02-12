@@ -7,7 +7,7 @@
     "jade": "jade ./src/view/page/index.jade -O {'debug':true} -P -w -o ./build/",
     "watch": "webpack --progress --colors --watch",
     "dev": "webpack-dev-server --content-base ./build/",
-    "build": "jade ./src/view/pageindex.jade -O  {\"debug\":false} -o ./build && webpack --display-error-details --config webpack.config.prod.js"
+    "build": "jade ./src/view/page/index.jade -O  {\"debug\":false} -o ./build && webpack --display-error-details --config webpack.config.prod.js"
   },
   "keywords": [],
   "author": "",

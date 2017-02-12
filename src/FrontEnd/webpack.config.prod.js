@@ -11,7 +11,7 @@
          })
      ],
      entry: {
-         index: ['./src/view/index.tsx'],
+         index: ['./src/script/model/index.tsx'],
      },
      output: {
          filename: '[name].js',

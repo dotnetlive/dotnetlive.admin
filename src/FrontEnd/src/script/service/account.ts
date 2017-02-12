@@ -4,6 +4,14 @@ interface LoginResponse {
     token: string
 }
 class AccountService {
+    private getCookieItem(name: string): any {
+        let arr = document.cookie.match(new RegExp("(^| )" + name + "=([^;]*)(;|$)"));
+        if (arr != null) {
+            return decodeURIComponent(arr[2]);
+        } else {
+            return null;
+        }
+    }
     private setCookieItem(name: string, value: any, timeout?: number) {
         if (timeout) {
             let d = new Date();
@@ -19,10 +27,14 @@ class AccountService {
     login(name: string, password: string, callback: (response: LoginResponse) => void) {
         let self = this, handle = (token) => { self.setCookieItem("token", token); callback && callback({ token: token }) };
         if (config.debugMode) {
-            handle("test-token");
+            if (name == "admin" && password == "123456") handle("test-token");
+            else config.error("username or password error");
         } else {
             ajax<LoginResponse>("/api/account/login", "GET", {}, (data) => handle(data.token));
         }
+    }
+    isLogined(): boolean {
+        return !!this.getCookieItem("token");
     }
 }
 
