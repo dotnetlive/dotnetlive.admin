@@ -1,0 +1,27 @@
+doctype html
+html(style="width:100%;height:100%;",lang="zh-cmn-Hans")
+    head
+        meta(charset="utf-8")  
+        meta(name="viewport",content="width=device-width,initial-scale=1,user-scalable=0")  
+        title dotnetlive-admin 
+        style.
+            blockquote,body,dd,div,dl,dt,fieldset,form,h1,h2,h3,h4,h5,h6,i,img,input,li,ol,p,pre,td,textarea,th,u,ul{list-style:none;padding:0;margin:0;font-family:"Microsoft Yahei";box-sizing:border-box}
+        block styles
+    body(style="width:100%;height:100%;")
+        style#preloading-style.
+            #pre{position:fixed;left:50%;top:50%;transform:translate(-50%,-50%)}#preloading{position:relative;margin:75pt auto;width:90px;height:90px;text-align:center;-webkit-animation:rotate 2s infinite linear;animation:rotate 2s infinite linear}#preloadingDot1,#preloadingDot2{position:absolute;top:0;display:inline-block;width:60%;height:60%;border-radius:100%;background-color:#67cf22;-webkit-animation:bounce 2s infinite ease-in-out;animation:bounce 2s infinite ease-in-out}#preloadingDot2{top:auto;bottom:0;-webkit-animation-delay:-1s;animation-delay:-1s}@-webkit-keyframes rotate{to{-webkit-transform:rotate(360deg)}}@-webkit-keyframes bounce{0%,to{-webkit-transform:scale(0)}50%{-webkit-transform:scale(1)}}@keyframes bounce{0%,to{-webkit-transform:scale(0);transform:scale(0)}50%{-webkit-transform:scale(1);transform:scale(1)}}
+        block content
+        #precontainer(style="width:100%;height:100%;background:#f1f1f1") 
+            #pre
+                #preloading
+                    #preloadingDot1
+                    #preloadingDot2
+                div#loadingText(style="text-align: center;color:white;font-family: 'Microsoft Yahei';") 正在加载&nbsp;&nbsp;&nbsp;
+        if(debug) 
+            script(src='//cdn.bootcss.com/react/15.3.2/react.js', type= 'text/javascript')
+            script(src='//cdn.bootcss.com/react/15.3.2/react-dom.js', type= 'text/javascript')   
+        -else 
+            script(src='//cdn.bootcss.com/react/15.3.2/react.min.js', type= 'text/javascript')
+            script(src='//cdn.bootcss.com/react/15.3.2/react-dom.min.js', type= 'text/javascript')
+        block script 
+        

@@ -1,0 +1,29 @@
+{
+  "name": "FrontEnd",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "jade": "jade ./src/view/page/index.jade -O {'debug':true} -P -w -o ./build/",
+    "watch": "webpack --progress --colors --watch",
+    "dev": "webpack-dev-server --content-base ./build/",
+    "build": "jade ./src/view/pageindex.jade -O  {\"debug\":false} -o ./build && webpack --display-error-details --config webpack.config.prod.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^7.0.5",
+    "@types/react": "^15.0.9",
+    "@types/react-dom": "^0.14.23",
+    "file-loader": "^0.10.0",
+    "jade": "^1.11.0",
+    "less": "^2.7.2",
+    "less-loader": "^2.2.3",
+    "ts-loader": "^2.0.0",
+    "typescript": "^2.1.6",
+    "url-loader": "^0.5.7",
+    "webpack": "^2.2.1",
+    "webpack-dev-server": "^2.3.0"
+  }
+}
