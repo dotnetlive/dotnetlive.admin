@@ -10,7 +10,8 @@ namespace DotNetLive.AdminWeb.Controllers
     {
         public IActionResult Index()
         {
-            return View();
+            //return View();
+            return RedirectToAction("Dashboard_1", "Dashboards");
         }
 
         public IActionResult About()

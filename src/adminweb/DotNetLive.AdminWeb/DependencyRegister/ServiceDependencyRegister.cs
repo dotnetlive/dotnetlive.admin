@@ -11,7 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using System;
 
-namespace DotNetLive.Framework.DependencyRegister
+namespace DotNetLive.AdminWeb.DependencyRegister
 {
     public class ServiceDependencyRegister : IDependencyRegister
     {
