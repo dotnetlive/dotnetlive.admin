@@ -30,4 +30,4 @@ publish_api:
 deploy_web: stop_web publish_web start_web
 deploy_api: stop_api publish_api start_api
 
-deploy: delete_current_build deploy_api deploy_web
+deploy: delete_current_build deploy_web
