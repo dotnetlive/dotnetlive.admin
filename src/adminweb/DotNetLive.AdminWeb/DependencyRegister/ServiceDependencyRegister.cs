@@ -1,6 +1,4 @@
 ﻿using DotNetLive.AdminWeb.Models.TodoModels;
-using DotNetLive.Framework.Data;
-using DotNetLive.Framework.Data.Repositories;
 using DotNetLive.Framework.DependencyManagement;
 using DotNetLive.Framework.Models;
 using Microsoft.AspNetCore.Http;
